@@ -1,20 +1,17 @@
-// package.json
 {
   "name": "football-handicap-backend",
   "version": "1.0.0",
   "description": "足球让球大小盘口记录系统后端API",
-  "main": "server.js",
+  "main": "api/index.js",
   "scripts": {
-    "start": "node server.js",
-    "dev": "nodemon server.js",
+    "start": "node api/index.js",
+    "dev": "nodemon api/index.js",
     "deploy": "vercel --prod"
   },
   "dependencies": {
     "express": "^4.18.2",
     "cors": "^2.8.5",
-    "pg": "^8.11.0",
-    "dotenv": "^16.0.3",
-    "bcryptjs": "^2.4.3"
+    "pg": "^8.11.0"
   },
   "devDependencies": {
     "nodemon": "^3.0.1"
