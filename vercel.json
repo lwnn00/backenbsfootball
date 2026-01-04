@@ -14,8 +14,7 @@
 
         "source": "/api/(.*)",
      "destination": "/api/index" ,
-      "source": "/(.*)",
-      "destination": "/server.js"
+    
       "src": "api/index.js",
       "use": "@vercel/node"
     }
