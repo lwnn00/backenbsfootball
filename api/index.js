@@ -213,7 +213,7 @@ app.get('/api/history', async (req, res) => {
 });
 
 // 保存记录
-app.post('/api/records', async (req, res) => {
+app.post('/records', async (req, res) => {
   const record = req.body;
   
   console.log('保存记录:', { userId: record.user_id, matchName: record.match_name });
