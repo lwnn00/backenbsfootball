@@ -10,6 +10,10 @@
   "version": 2,
   "builds": [
     {
+
+
+        "source": "/api/(.*)", "destination": "/api/index" ,
+     "destination": "/api/index" ,
       "source": "/(.*)",
       "destination": "/server.js"
       "src": "api/index.js",
