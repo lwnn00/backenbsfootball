@@ -53,7 +53,7 @@ app.get('/api', (req, res) => {
 });
 
 // 测试数据库连接
-app.get('/api/test', async (req, res) => {
+app.get('/test', async (req, res) => {
   try {
     const result = await pool.query('SELECT NOW() as time');
     res.json({ 
@@ -71,7 +71,7 @@ app.get('/api/test', async (req, res) => {
 });
 
 // 用户注册
-app.post('/api/register', async (req, res) => {
+app.post('/register', async (req, res) => {
   const { username, password, invitationCode } = req.body;
   
   console.log('注册请求:', { username, hasPassword: !!password, invitationCode });
@@ -139,7 +139,7 @@ app.post('/api/register', async (req, res) => {
 });
 
 // 用户登录
-app.post('/api/login', async (req, res) => {
+app.post('/login', async (req, res) => {
   const { username, password } = req.body;
   
   console.log('登录请求:', { username });
@@ -181,7 +181,7 @@ app.post('/api/login', async (req, res) => {
 });
 
 // 获取用户历史记录
-app.get('/api/history', async (req, res) => {
+app.get('/history', async (req, res) => {
   const { userId } = req.query;
   
   if (!userId) {
@@ -303,7 +303,7 @@ app.post('/records', async (req, res) => {
 });
 
 // 更新记录
-app.put('/api/records/:id', async (req, res) => {
+app.put('/records/:id', async (req, res) => {
   const { id } = req.params;
   const { actual_result } = req.body;
   
@@ -326,7 +326,7 @@ app.put('/api/records/:id', async (req, res) => {
 });
 
 // 删除记录
-app.delete('/api/records/:id', async (req, res) => {
+app.delete('/records/:id', async (req, res) => {
   const { id } = req.params;
   
   try {
@@ -344,7 +344,7 @@ app.delete('/api/records/:id', async (req, res) => {
 });
 
 // 获取邀请码
-app.get('/api/invitation-codes', async (req, res) => {
+app.get('/invitation-codes', async (req, res) => {
   try {
     const result = await pool.query(
       'SELECT code, created_by, created_at FROM invitation_codes WHERE is_used = false ORDER BY created_at DESC'
@@ -364,7 +364,7 @@ app.get('/api/invitation-codes', async (req, res) => {
 });
 
 // 导入邀请码
-app.post('/api/invitation-codes', async (req, res) => {
+app.post('/invitation-codes', async (req, res) => {
   const { codes, createdBy = 'admin' } = req.body;
   
   if (!codes || !Array.isArray(codes) || codes.length === 0) {
@@ -410,7 +410,7 @@ app.post('/api/invitation-codes', async (req, res) => {
 });
 
 // 让球盘推荐
-app.post('/api/recommend/asian', async (req, res) => {
+app.post('/recommend/asian', async (req, res) => {
   const data = req.body;
   
   try {
@@ -433,7 +433,7 @@ app.post('/api/recommend/asian', async (req, res) => {
 });
 
 // 大小盘推荐
-app.post('/api/recommend/size', async (req, res) => {
+app.post('/recommend/size', async (req, res) => {
   const data = req.body;
   
   try {
